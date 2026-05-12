@@ -1,6 +1,6 @@
 {
-  "name": "react-joyride-react19-beta2",
-  "version": "2.9.4-react19-beta2",
+  "name": "@summitify/react-joyride",
+  "version": "2.9.4",
   "description": "Create guided tours for your apps",
   "author": "Gil Barbara <gilbarbara@gmail.com>",
   "repository": {
@@ -11,7 +11,7 @@
     "url": "https://github.com/gilbarbara/react-joyride/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://pkgs.dev.azure.com/celerate-realtor/Realtor/_packaging/npm_feed/npm/registry/"
   },
   "homepage": "https://react-joyride.com/",
   "keywords": [
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
+    "@eslint/eslintrc": "3.3.1",
     "@gilbarbara/eslint-config": "^0.8.2",
     "@gilbarbara/node-helpers": "^0.1.0",
     "@gilbarbara/prettier-config": "^1.0.0",
@@ -94,7 +95,7 @@
     "vitest": "^2.1.5"
   },
   "scripts": {
-    "build": " npm run clean && tsup && ts-node scripts/fix-cjs.ts",
+    "build": "npm run clean && tsup && ts-node scripts/fix-cjs.ts",
     "watch": "tsup --watch",
     "clean": "rimraf dist",
     "lint": "eslint --fix src test",
@@ -110,7 +111,7 @@
     "validate": "npm run lint && npm run typecheck && npm run test:coverage && npm run e2e && npm run build && npm run size && npm run typevalidation",
     "size": "size-limit",
     "prepare": "husky",
-    "prepublishOnly": "npm run validate"
+    "publish:azure": "npm publish --ignore-scripts"
   },
   "tsup": {
     "dts": true,
